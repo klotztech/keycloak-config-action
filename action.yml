@@ -1,10 +1,6 @@
 name: 'Keycloak Realm Configuration'
 description: 'Imports a keycloak realm config'
 inputs:
-  cli-version:
-    description: 'Keycloak Config CLI version'
-    required: false
-    default: 'latest'
   url:  # id of input
     description: 'URL of a Keycloak server'
     required: true
@@ -37,7 +33,7 @@ inputs:
     
 runs:
   using: 'docker'
-  image: 'docker://adorsys/keycloak-config-cli:${{ inputs.cli-version }}'
+  image: 'docker://adorsys/keycloak-config-cli:latest-15.0.2'
   args:
     - '--keycloak.url=${{ inputs.url }}'
     - '--keycloak.user=${{ inputs.username }}'
