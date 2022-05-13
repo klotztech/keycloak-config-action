@@ -33,7 +33,7 @@ inputs:
     
 runs:
   using: 'docker'
-  image: 'docker://adorsys/keycloak-config-cli:latest-15.0.2'
+  image: 'docker://adorsys/keycloak-config-cli:latest-18.0.0'
   args:
     - '--keycloak.url=${{ inputs.url }}'
     - '--keycloak.user=${{ inputs.username }}'
