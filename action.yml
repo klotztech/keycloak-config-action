@@ -30,11 +30,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://adorsys/keycloak-config-cli:latest-18.0.0'
-  args:
-    - '--keycloak.url=${{ inputs.url }}'
-    - '--keycloak.user=${{ inputs.username }}'
-    - '--keycloak.password=${{ inputs.password }}'
-    - '--keycloak.login-realm=${{ inputs.login-realm }}'
-    - '--import.files.locations=${{ inputs.files }}'
-    - '--keycloak.availability-check.enabled=${{ inputs.availability-check-enabled }}'
-    - '--keycloak.availability-check.timeout=${{ inputs.availability-check-timeout }}'
+  env: 
+    KEYCLOAK_URL: ${{ inputs.url }}
+    KEYCLOAK_USER: ${{ inputs.username }}
+    KEYCLOAK_PASSWORD: ${{ inputs.password }}
+    KEYCLOAK_LOGINREALM: ${{ inputs.login-realm }}
+    IMPORT_FILES_LOCATIONS: ${{ inputs.files }}
+    KEYCLOAK_AVAILABILITYCHECK_ENABLED: ${{ inputs.availability-check-enabled }}
+    KEYCLOAK_AVAILABILITYCHECK_TIMEOUT: ${{ inputs.availability-check-timeout }}
