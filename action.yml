@@ -14,14 +14,10 @@ inputs:
     description: 'Realm used to log in'
     required: false
     default: 'master'
-  path:
-    description: 'Location of config files (if location is a directory, all files will be imported)'
+  files:
+    description: 'Location of config files (URL, file path, or Ant-style pattern)'
     required: false
     default: '/config'
-  force:
-    description: 'Import realm even if config file is unchanged'
-    required: false
-    default: false
   availability-check-enabled:
     description: 'Wait until Keycloak is available'
     required: false
@@ -39,7 +35,6 @@ runs:
     - '--keycloak.user=${{ inputs.username }}'
     - '--keycloak.password=${{ inputs.password }}'
     - '--keycloak.login-realm=${{ inputs.login-realm }}'
-    - '--import.path=${{ inputs.path }}'
-    - '--import.force=${{ inputs.force }}'
+    - '--import.files.locations=${{ inputs.files }}'
     - '--keycloak.availability-check.enabled=${{ inputs.availability-check-enabled }}'
     - '--keycloak.availability-check.timeout=${{ inputs.availability-check-timeout }}'
